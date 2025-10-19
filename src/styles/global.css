@@ -1,5 +1,7 @@
 :root{
-  --bg:#0b0c0e; --fg:#c9d1d9; --muted:#8b949e; --accent:#00a37a; /* púrpura alt: #7a3ba0 */
+  --bg:#0b0c0e; --fg:#c9d1d9; --muted:#8b949e; --accent:#00a37a;
+  --font-sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  --font-display: "Plus Jakarta Sans", Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
 }
 html{color-scheme:dark; background:var(--bg); color:var(--fg);}
 a{color:var(--accent); text-decoration:none}
@@ -48,4 +50,20 @@ section h1:first-child{margin-top:0}
 /* Localización: mismo hover verde que los enlaces, sin cambiar el cursor */
 .bio-links li[itemprop="homeLocation"] { color: var(--accent); }
 
+/* Texto base mucho más legible */
+body{ font-family: var(--font-sans); line-height:1.6; font-weight:400 }
+
+/* Titulares con buena presencia */
+h1,h2,h3{ font-family: var(--font-display); font-weight:800; line-height:1.2; letter-spacing:.2px }
+
+/* Marca del header y títulos de tarjetas */
+.brand, .post-item a{ font-family: var(--font-display); font-weight:800 }
+
+/* Post title grande (opcional) */
+.post h1{ font-size: clamp(1.9rem, 2.4vw, 2.6rem); }
+
+/* Subtítulos/texto de meta */
+.muted{ color: var(--muted); font-weight:500 }
+
+pre,code{ font-family:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 

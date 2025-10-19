@@ -1,7 +1,13 @@
 ---
 import Base from "../layouts/Base.astro";
+import Sidebar from "../components/Sidebar.astro";
 ---
-<Base title="About — bulw4rk" description="Who, why, and how.">
-  <h1>About</h1>
-  <p>Breve bio y contacto.</p>
+<Base title="About — bulw4rk" description="Who, why, and how">
+  <div class="two-col">
+    <div class="sidebar"><Sidebar /></div>
+    <section>
+      <h1>About</h1>
+      <p>Breve bio y contacto</p>
+    </section>
+  </div>
 </Base>

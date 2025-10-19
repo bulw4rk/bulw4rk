@@ -11,3 +11,4 @@ pre,code{font-family:"JetBrains Mono", ui-monospace, monospace;}
 .brand{font-weight:800;letter-spacing:.3px}
 .menu a{margin-left:16px;color:inherit;opacity:.85}
 .menu a:hover{opacity:1;text-decoration:underline}
+.bio-links li{margin:.35rem 0}

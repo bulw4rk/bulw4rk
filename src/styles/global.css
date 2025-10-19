@@ -13,43 +13,40 @@ pre,code{font-family:"JetBrains Mono", ui-monospace, monospace;}
 .menu a:hover{opacity:1;text-decoration:underline}
 .bio-links li{margin:.35rem 0}
 
-/* ===== layout 2 columnas (sidebar estrecho) ===== */
+/* === ancho de la barra para que alinee con el main === */
+.nav-inner{max-width:1100px; margin:0 auto; padding:12px 16px;
+  display:flex; align-items:center; justify-content:space-between}
+
+/* === layout 2 columnas (sidebar estrecho y pegado) === */
 .two-col{
   display:grid;
-  grid-template-columns: 220px minmax(0,1fr); /* antes 280px */
-  gap:20px;               /* menos separación */
+  grid-template-columns:200px minmax(0,1fr); /* más estrecho */
+  gap:18px;
   align-items:start;
 }
+@media (max-width:900px){ .two-col{grid-template-columns:1fr} }
 
-/* hacemos sticky el CONTENEDOR del sidebar, no la caja interior */
-.sidebar{
-  position: sticky;
-  top: 16px;              /* elimina el hueco grande (antes 88px) */
-}
+/* pegamos el contenedor del lateral arriba, sin huecos */
+.sidebar{ position:sticky; top:0; }
 
-/* caja del sidebar: sin “tarjeta” gruesa */
-.sidebar .bio{
-  background: transparent;  /* quita fondo gris */
-  border: 0;                /* quita borde */
-  border-radius: 0;
-  padding: 0;               /* quita relleno extra */
-}
+/* caja del sidebar sin “tarjeta” gruesa */
+.sidebar .bio{ background:transparent; border:0; padding:0; margin:0; }
 
-/* elementos del sidebar */
-.avatar{
-  display:block;
-  width:120px; height:120px;           /* más pequeño */
-  border-radius:999px;
-  object-fit:cover;
-  border:1px solid #262a33;
-  margin-bottom:10px;
-}
-.bio-name{ margin:.4rem 0 0; font-weight:800; }
+/* si no hay imagen, no dejes el círculo vacío */
+.avatar{ display:block; width:100px; height:100px; border-radius:999px;
+  object-fit:cover; border:1px solid #262a33; margin:0 0 10px 0; }
+.avatar[src=""], .avatar:not([src]){ display:none; }  /* <- oculta placeholder */
+
+/* tipografía/espaciado del lateral */
+.bio-name{ margin:.35rem 0 0; font-weight:800; }
 .bio-text{ color:var(--muted); margin:.25rem 0 1rem; }
 .bio-links{ list-style:none; padding:0; margin:0; }
-.bio-links li{ margin:.35rem 0; }
+.bio-links li{ margin:.35rem 0; }  /* deja solo UNA vez esta regla */
 
 /* lista de posts */
 .post-list{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:18px; }
 .post-item{ padding:14px 0; border-bottom:1px solid #262a33; }
 .muted{ color:var(--muted); }
+
+/* elimina el hueco por margen del primer h1 de la columna derecha */
+section h1:first-child{ margin-top:0; }

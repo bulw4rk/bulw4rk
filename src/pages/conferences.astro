@@ -1,7 +1,15 @@
 ---
 import Base from "../layouts/Base.astro";
+import Sidebar from "../components/Sidebar.astro";
 ---
-<Base title="Conferences — bulw4rk" description="Talks, workshops, papers.">
-  <h1>Conferences</h1>
-  <p>Lista charlas / talleres / papers con enlaces.</p>
+<Base title="Conferences — bulw4rk" description="Talks and workshops">
+  <div class="two-col">
+    <div class="sidebar"><Sidebar /></div>
+    <section>
+      <h1>Conferences</h1>
+      <ul>
+        <li>2025 — Example talk — slides / code</li>
+      </ul>
+    </section>
+  </div>
 </Base>

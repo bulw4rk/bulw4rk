@@ -1,11 +1,33 @@
 ---
 import Base from "../layouts/Base.astro";
----
-<Base title="bulw4rk" description="Notes of Offensive Security.">
-  <h1 style="letter-spacing:.02em;font-weight:800;margin-bottom:.25em">bulw4rk</h1>
-  <p style="opacity:.8;margin:0 0 1.25em">Notes from the other ring — offensive tradecraft after dark.</p>
+import Sidebar from "../components/Sidebar.astro";
 
-  <ul>
-    <li><a href="blog/bulw4rk-manifesto/">bulw4rk — manifesto</a></li>
-  </ul>
+// Carga y ordena los posts (más recientes primero)
+const posts = await Astro.glob("./blog/*.md");
+posts.sort((a,b) => new Date(b.frontmatter.pubDate) - new Date(a.frontmatter.pubDate));
+const latest = posts.slice(0, 6); // muestra los 6 últimos
+---
+<Base title="bulw4rk" description="Offensive tradecraft after dark.">
+  <div class="two-col">
+    <div class="sidebar"><Sidebar /></div>
+
+    <section>
+      <h1>Recent posts</h1>
+      <ul class="post-list">
+        {latest.map(p => (
+          <li class="post-item">
+            <h3><a href={p.url}>{p.frontmatter.title}</a></h3>
+            {p.frontmatter.description && <p class="muted">{p.frontmatter.description}</p>}
+            <small class="muted">
+              {new Date(p.frontmatter.pubDate).toLocaleDateString()}
+            </small>
+          </li>
+        ))}
+      </ul>
+
+      <p style="margin-top:12px">
+        <a href="/blog/">View all posts →</a>
+      </p>
+    </section>
+  </div>
 </Base>

@@ -13,48 +13,43 @@ pre,code{font-family:"JetBrains Mono", ui-monospace, monospace;}
 .menu a:hover{opacity:1;text-decoration:underline}
 .bio-links li{margin:.35rem 0}
 
-/* ===== two-column layout + sidebar + posts ===== */
+/* ===== layout 2 columnas (sidebar estrecho) ===== */
 .two-col{
   display:grid;
-  grid-template-columns:280px 1fr;
-  gap:24px;
+  grid-template-columns: 220px minmax(0,1fr); /* antes 280px */
+  gap:20px;               /* menos separación */
   align-items:start;
 }
-@media (max-width:900px){
-  .two-col{ grid-template-columns:1fr; }
+
+/* hacemos sticky el CONTENEDOR del sidebar, no la caja interior */
+.sidebar{
+  position: sticky;
+  top: 16px;              /* elimina el hueco grande (antes 88px) */
 }
 
-/* caja del sidebar */
+/* caja del sidebar: sin “tarjeta” gruesa */
 .sidebar .bio{
-  position:sticky;
-  top:88px;                  /* pega el lateral bajo la barra */
-  background:rgba(255,255,255,.02);
-  border:1px solid #262a33;
-  border-radius:12px;
-  padding:16px;
+  background: transparent;  /* quita fondo gris */
+  border: 0;                /* quita borde */
+  border-radius: 0;
+  padding: 0;               /* quita relleno extra */
 }
 
 /* elementos del sidebar */
 .avatar{
   display:block;
-  width:160px; height:160px;
+  width:120px; height:120px;           /* más pequeño */
   border-radius:999px;
   object-fit:cover;
   border:1px solid #262a33;
+  margin-bottom:10px;
 }
-.bio-name{ margin:.6rem 0 0; font-weight:800; }
+.bio-name{ margin:.4rem 0 0; font-weight:800; }
 .bio-text{ color:var(--muted); margin:.25rem 0 1rem; }
 .bio-links{ list-style:none; padding:0; margin:0; }
-.bio-links li{ margin:.35rem 0; }   /* ya lo tenías, ok */
+.bio-links li{ margin:.35rem 0; }
 
 /* lista de posts */
-.post-list{
-  list-style:none;
-  padding:0; margin:0;
-  display:flex; flex-direction:column; gap:18px;
-}
-.post-item{
-  padding:14px 0;
-  border-bottom:1px solid #262a33;
-}
+.post-list{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:18px; }
+.post-item{ padding:14px 0; border-bottom:1px solid #262a33; }
 .muted{ color:var(--muted); }

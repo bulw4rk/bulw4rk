@@ -50,3 +50,7 @@ pre,code{font-family:"JetBrains Mono", ui-monospace, monospace;}
 
 /* elimina el hueco por margen del primer h1 de la columna derecha */
 section h1:first-child{ margin-top:0; }
+
+.post :where(p,ul,ol,pre,code,blockquote){margin-bottom:1rem}
+.post pre{padding:12px;border:1px solid #262a33;border-radius:8px;overflow:auto}
+

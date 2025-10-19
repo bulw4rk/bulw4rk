@@ -5,52 +5,42 @@ html{color-scheme:dark; background:var(--bg); color:var(--fg);}
 a{color:var(--accent); text-decoration:none}
 a:hover{text-decoration:underline}
 pre,code{font-family:"JetBrains Mono", ui-monospace, monospace;}
-/* simple top nav */
-.nav{position:sticky;top:0;background:rgba(11,12,14,.7);backdrop-filter:blur(6px);border-bottom:1px solid #262a33}
-.nav-inner{max-width:860px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;justify-content:space-between}
-.brand{font-weight:800;letter-spacing:.3px}
-.menu a{margin-left:16px;color:inherit;opacity:.85}
-.menu a:hover{opacity:1;text-decoration:underline}
-.bio-links li{margin:.35rem 0}
 
-/* === ancho de la barra para que alinee con el main === */
-.nav-inner{max-width:1100px; margin:0 auto; padding:12px 16px;
-  display:flex; align-items:center; justify-content:space-between}
+/* Top nav */
+.nav{position:sticky; top:0; z-index:100; background:rgba(11,12,14,.7); backdrop-filter:blur(6px); border-bottom:1px solid #262a33}
+.nav-inner{max-width:1100px; margin:0 auto; padding:12px 16px; display:flex; align-items:center; justify-content:space-between}
+.brand{font-weight:800; letter-spacing:.3px}
+.menu a{margin-left:16px; color:inherit; opacity:.85}
+.menu a:hover{opacity:1; text-decoration:underline}
 
-/* === layout 2 columnas (sidebar estrecho y pegado) === */
-.two-col{
-  display:grid;
-  grid-template-columns:200px minmax(0,1fr); /* más estrecho */
-  gap:18px;
-  align-items:start;
-}
+/* Iconos / enlaces del sidebar */
+.icon{width:18px;height:18px;vertical-align:-2px;margin-right:6px;fill:currentColor}
+.bio-links{list-style:none; padding:0; margin:0}
+.bio-links li{margin:.35rem 0; display:flex; align-items:center}
+.bio-links svg{width:18px; height:18px; fill:currentColor; flex-shrink:0}
+.bio-links a{display:inline-flex; align-items:center; gap:6px}
+.bio-links a:hover{color:var(--accent)}
+
+/* Layout 2 columnas */
+.two-col{display:grid; grid-template-columns:200px minmax(0,1fr); gap:18px; align-items:start}
 @media (max-width:900px){ .two-col{grid-template-columns:1fr} }
 
-/* pegamos el contenedor del lateral arriba, sin huecos */
-.sidebar{ position:sticky; top:0; }
+/* Sidebar */
+.sidebar{position:sticky; top:0}
+.sidebar .bio{background:transparent; border:0; padding:0; margin:0}
+.avatar{display:block; width:100px; height:100px; border-radius:999px; object-fit:cover; border:1px solid #262a33; margin:0 0 10px 0}
+.avatar[src=""], .avatar:not([src]){display:none}
+.bio-name{margin:.35rem 0 0; font-weight:800}
+.bio-text{color:var(--muted); margin:.25rem 0 1rem}
 
-/* caja del sidebar sin “tarjeta” gruesa */
-.sidebar .bio{ background:transparent; border:0; padding:0; margin:0; }
+/* Listado de posts */
+.post-list{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:18px}
+.post-item{padding:14px 0; border-bottom:1px solid #262a33}
+.muted{color:var(--muted)}
 
-/* si no hay imagen, no dejes el círculo vacío */
-.avatar{ display:block; width:100px; height:100px; border-radius:999px;
-  object-fit:cover; border:1px solid #262a33; margin:0 0 10px 0; }
-.avatar[src=""], .avatar:not([src]){ display:none; }  /* <- oculta placeholder */
+/* Ajuste de encabezado */
+section h1:first-child{margin-top:0}
 
-/* tipografía/espaciado del lateral */
-.bio-name{ margin:.35rem 0 0; font-weight:800; }
-.bio-text{ color:var(--muted); margin:.25rem 0 1rem; }
-.bio-links{ list-style:none; padding:0; margin:0; }
-.bio-links li{ margin:.35rem 0; }  /* deja solo UNA vez esta regla */
-
-/* lista de posts */
-.post-list{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:18px; }
-.post-item{ padding:14px 0; border-bottom:1px solid #262a33; }
-.muted{ color:var(--muted); }
-
-/* elimina el hueco por margen del primer h1 de la columna derecha */
-section h1:first-child{ margin-top:0; }
-
+/* Cuerpo del post */
 .post :where(p,ul,ol,pre,code,blockquote){margin-bottom:1rem}
-.post pre{padding:12px;border:1px solid #262a33;border-radius:8px;overflow:auto}
-
+.post pre{padding:12px; border:1px solid #262a33; border-radius:8px; overflow:auto}

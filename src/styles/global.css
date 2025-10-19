@@ -46,6 +46,6 @@ section h1:first-child{margin-top:0}
 .post pre{padding:12px; border:1px solid #262a33; border-radius:8px; overflow:auto}
 
 /* Localización: mismo hover verde que los enlaces, sin cambiar el cursor */
-.bio-links li[itemprop="homeLocation"] { color: inherit; }
-.bio-links li[itemprop="homeLocation"]:hover { color: var(--accent); cursor: default; }
+.bio-links li[itemprop="homeLocation"] { color: var(--accent); }
+
 

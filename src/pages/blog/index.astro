@@ -1,13 +1,24 @@
 ---
 import Base from "../../layouts/Base.astro";
+import Sidebar from "../../components/Sidebar.astro";
 const posts = (await Astro.glob("./*.md"))
   .sort((a,b)=>new Date(b.frontmatter.pubDate)-new Date(a.frontmatter.pubDate));
 ---
 <Base title="Posts — bulw4rk" description="All posts">
-  <h1>Posts</h1>
-  <ul>
-    {posts.map(p => (
-      <li><a href={p.url}>{p.frontmatter.title}</a></li>
-    ))}
-  </ul>
+  <div class="two-col">
+    <div class="sidebar"><Sidebar /></div>
+
+    <section>
+      <h1>Recent posts</h1>
+      <ul class="post-list">
+        {posts.map(p => (
+          <li class="post-item">
+            <h3><a href={p.url}>{p.frontmatter.title}</a></h3>
+            {p.frontmatter.description && <p class="muted">{p.frontmatter.description}</p>}
+            <small class="muted">{new Date(p.frontmatter.pubDate).toLocaleDateString()}</small>
+          </li>
+        ))}
+      </ul>
+    </section>
+  </div>
 </Base>

@@ -1,0 +1,13 @@
+:root{
+  --bg:#0b0c0e; --fg:#c9d1d9; --muted:#8b949e; --accent:#00a37a; /* púrpura alt: #7a3ba0 */
+}
+html{color-scheme:dark; background:var(--bg); color:var(--fg);}
+a{color:var(--accent); text-decoration:none}
+a:hover{text-decoration:underline}
+pre,code{font-family:"JetBrains Mono", ui-monospace, monospace;}
+/* simple top nav */
+.nav{position:sticky;top:0;background:rgba(11,12,14,.7);backdrop-filter:blur(6px);border-bottom:1px solid #262a33}
+.nav-inner{max-width:860px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:800;letter-spacing:.3px}
+.menu a{margin-left:16px;color:inherit;opacity:.85}
+.menu a:hover{opacity:1;text-decoration:underline}
